@@ -1,16 +1,14 @@
-package main
-
-import (
-	"fmt"
-)
+package hello
 
 const (
-	englishGreeting string = "Hello, "
-	spanishGreeting string = "Hola, "
-	frenchGreeting  string = "Bonjour, "
+	englishGreeting  string = "Hello, "
+	spanishGreeting  string = "Hola, "
+	frenchGreeting   string = "Bonjour, "
+	hawaiianGreeting string = "Aloha, "
 
-	SPANISH string = "Spanish"
-	FRENCH  string = "French"
+	SPANISH  string = "Spanish"
+	FRENCH   string = "French"
+	HAWAIIAN string = "Hawaiian"
 )
 
 func Hello(name string, language string) string {
@@ -23,6 +21,8 @@ func getPrefix(language string) (prefix string) {
 		prefix = spanishGreeting
 	case FRENCH:
 		prefix = frenchGreeting
+	case HAWAIIAN:
+		prefix = hawaiianGreeting
 	default:
 		prefix = englishGreeting
 	}
@@ -34,8 +34,4 @@ func getName(name string) string {
 		return "World!"
 	}
 	return name
-}
-
-func main() {
-	fmt.Println(Hello("", ""))
 }
