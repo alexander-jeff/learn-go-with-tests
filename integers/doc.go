@@ -2,5 +2,5 @@
 //
 // Example usage
 //
-// blah blah
+// Documentation is beautifully incorporated.
 package integers
