@@ -6,25 +6,23 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestShapesArea(t *testing.T) {
-	assertCorrectArea := func(t testing.TB, shape Shape, want float64) {
-		t.Helper()
-		got := shape.Area()
+func TestArea(t *testing.T) {
+	assert := assert.New(t)
 
-		assert.Equal(t, want, got)
+	areaTests := []struct {
+		shape Shape
+		want  float64
+	}{
+		{Rectangle{6.0, 4.0}, 24.0},
+		{Circle{10.0}, 314.1592653589793},
+		{Triangle{12, 6}, 36.0},
 	}
 
-	t.Run("rectangles", func(t *testing.T) {
-		rectangle := Rectangle{6.0, 4.0}
-		want := 24.0
-		assertCorrectArea(t, rectangle, want)
-	})
+	for _, tt := range areaTests {
+		got := tt.shape.Area()
 
-	t.Run("circles", func(t *testing.T) {
-		circle := Circle{10.0}
-		want := 314.1592653589793
-		assertCorrectArea(t, circle, want)
-	})
+		assert.Equal(tt.want, got)
+	}
 }
 
 func TestShapesPerimeters(t *testing.T) {
