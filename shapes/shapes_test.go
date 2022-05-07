@@ -10,18 +10,20 @@ func TestArea(t *testing.T) {
 	assert := assert.New(t)
 
 	areaTests := []struct {
-		shape Shape
-		want  float64
+		name    string
+		shape   Shape
+		hasArea float64
 	}{
-		{Rectangle{6.0, 4.0}, 24.0},
-		{Circle{10.0}, 314.1592653589793},
-		{Triangle{12, 6}, 36.0},
+		{name: "Rectangle", shape: Rectangle{6.0, 4.0}, hasArea: 24.0},
+		{name: "Circle", shape: Circle{10.0}, hasArea: 314.1592653589793},
+		{name: "Triangle", shape: Triangle{12, 6}, hasArea: 36.0},
 	}
 
 	for _, tt := range areaTests {
+		want := tt.hasArea
 		got := tt.shape.Area()
 
-		assert.Equal(tt.want, got)
+		assert.Equal(want, got)
 	}
 }
 
