@@ -20,10 +20,12 @@ func TestArea(t *testing.T) {
 	}
 
 	for _, tt := range areaTests {
-		want := tt.hasArea
-		got := tt.shape.Area()
+		t.Run(tt.name, func(t *testing.T) {
+			want := tt.hasArea
+			got := tt.shape.Area()
 
-		assert.Equal(want, got)
+			assert.Equal(want, got)
+		})
 	}
 }
 
